@@ -4,7 +4,7 @@ import time
 from threading import *
 
 
-def show(ip, port):
+def receiver(ip, port):
     myp = socket.SOCK_DGRAM
     afn = socket.AF_INET
     s = socket.socket(afn, myp)
@@ -16,7 +16,7 @@ def show(ip, port):
         print('Received Message : ',x[0].decode())
         time.sleep(2 / 10)
 
-def reply(ip2, port2):
+def sender(ip2, port2):
     myp = socket.SOCK_DGRAM
     afn = socket.AF_INET
     s = socket.socket(afn, myp)
@@ -37,8 +37,8 @@ sys.stdout.flush()
 ip2 = sys.stdin.readline()
 port2 = int(input("Enter Friend's port number : "))
 
-t1 = Thread(target=reply, args=(ip2, port2))
-t2 = Thread(target=show, args=(ip, port))
+t1 = Thread(target=sender, args=(ip2, port2))
+t2 = Thread(target=receiver, args=(ip, port))
 
 t1.start()
 t2.start()
