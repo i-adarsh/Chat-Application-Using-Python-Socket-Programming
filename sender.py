@@ -1,4 +1,5 @@
 import socket
+import sys
 import time
 from threading import *
 
@@ -26,9 +27,14 @@ def reply(ip2, port2):
         print('Your Message : ', msg)
         time.sleep(0.2)
 
-ip = input('Enter your IP address : ')
+sys.stdout.write("Enter your IP address: ")
+sys.stdout.flush()
+ip = sys.stdin.readline()
 port = int(input('Enter your port number : '))
-ip2 = input("Enter Friend's IP address : ")
+
+sys.stdout.write("Enter Friend's IP address : ")
+sys.stdout.flush()
+ip2 = sys.stdin.readline()
 port2 = int(input("Enter Friend's port number : "))
 
 t1 = Thread(target=reply, args=(ip2, port2))
