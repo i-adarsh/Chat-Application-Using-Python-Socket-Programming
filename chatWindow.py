@@ -3,8 +3,8 @@ import socket as s
 import threading as thd
 import os
 
-print("\t\t\t\tWelcome to Adarsh's ChatApp")
-print("\t\t\t\t---------------------")
+print("\t\t\t\tWelcome to Adarsh's Chat Application For Different OS's")
+print("\t\t\t\t--------------------------------------------------------")
 
 # Create a Socket and Bind IP and PORT to It
 skt = s.socket(s.AF_INET, s.SOCK_DGRAM)
